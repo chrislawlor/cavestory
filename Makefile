@@ -1,5 +1,5 @@
 OBJECT_NAME = cavestory
-OBJECTS = main.o graphics.o game.o input.o
+OBJECTS = main.o graphics.o game.o input.o sprite.o
 CC = g++
 LINKER_FLAGS = -lSDL2 -lSDL_image
 
@@ -15,6 +15,7 @@ main.o: graphics.h
 graphics.o: graphics.h
 game.o: graphics.h game.h
 input.o: input.h
+sprite.o: sprite.h graphics.h
 
 .PHONY: clean
 clean:
