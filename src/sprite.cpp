@@ -1,5 +1,6 @@
 #include "../headers/sprite.h"
 #include "../headers/graphics.h"
+#include "../headers/globals.h"
 
 
 Sprite::Sprite() {}
@@ -16,7 +17,8 @@ Sprite::Sprite(Graphics &graphics, const std::string &filePath, int sourceX,
 
     this->_spriteSheet = SDL_CreateTextureFromSurface(graphics.getRenderer(), graphics.loadImage(filePath));
     if (this->_spriteSheet == NULL) {
-        printf("\nError: Unable to load image\n");
+        printf("\nError: Unable to load image %s: %s\n", filePath.c_str(), SDL_GetError());
+        // printf("%s is a PNG: %s", filePath.c_str(), IMG_isPNG(filePath));
     }
 }
 
@@ -25,7 +27,8 @@ Sprite::~Sprite() {}
 
 
 void Sprite::draw(Graphics &graphics, int x, int y) {
-    SDL_Rect destinationRectangle = { x, y, this->_sourceRect.w, this->_sourceRect.h};
+    SDL_Rect destinationRectangle = { x, y, this->_sourceRect.w * globals::SPRITE_SCALE,
+        this->_sourceRect.h * globals::SPRITE_SCALE};
     graphics.blitSurface(this->_spriteSheet, &this->_sourceRect, &destinationRectangle);
 }
 

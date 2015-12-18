@@ -5,7 +5,11 @@
  * Holds all information for the main game loop
  */
 
+
+# include "../headers/sprite.h"
+
 class Graphics;
+
 
 class Game {
 public:
@@ -15,6 +19,8 @@ private:
     void gameLoop();
     void draw(Graphics &graphics);
     void update(float elapsedTime);
+
+    Sprite _player;
 };
 
 #endif
