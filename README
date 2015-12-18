@@ -1,0 +1,4 @@
+http://radd.it/r/learnprogramming/comments/3x7sqb/vids
+
+The Makefile is currently sub-optimal, and we have to prepend
+each header include with "../headers/", which is annoying.
