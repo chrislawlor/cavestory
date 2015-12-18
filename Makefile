@@ -1,7 +1,7 @@
 OBJECT_NAME = cavestory
 OBJECTS = main.o graphics.o game.o input.o
 CC = g++
-LINKER_FLAGS = -lSDL2
+LINKER_FLAGS = -lSDL2 -lSDL_image
 
 # vpath %.cpp src
 # vpath %.h headers
