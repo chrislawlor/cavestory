@@ -1,9 +1,10 @@
 OBJECT_NAME = cavestory
-OBJECTS = main.o graphics.o game.o input.o sprite.o
+
 CC = g++
 
 LINKER_FLAGS = 
 
+# Different options for Linux and OSX
 uname_S := $(shell sh -c 'uname -s 2>/dev/null || echo not')
 ifeq ($(uname_S),Darwin)
 	LINKER_FLAGS = -F/Library/Frameworks -framework SDL2_image -framework SDL2
@@ -13,6 +14,16 @@ ifeq ($(uname_S),Linux)
 endif
 
 VPATH = src:headers
+
+# Guard against environment variables
+OBJECTS = 
+
+OBJECTS += main.o
+OBJECTS += graphics.o
+OBJECTS += game.o
+OBJECTS += input.o
+OBJECTS += sprite.o
+OBJECTS += animatedsprite.o
 
 all: $(OBJECTS)
 	$(CC) $(OBJECTS) $(LINKER_FLAGS) -o $(OBJECT_NAME)
