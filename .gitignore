@@ -1,2 +1,4 @@
 cavestory
 *.o
+*.sublime-project
+*.sublime-workspace
