@@ -1,10 +1,17 @@
 OBJECT_NAME = cavestory
 OBJECTS = main.o graphics.o game.o input.o sprite.o
 CC = g++
-LINKER_FLAGS = -lSDL2 -lSDL2_image
 
-# vpath %.cpp src
-# vpath %.h headers
+LINKER_FLAGS = 
+
+uname_S := $(shell sh -c 'uname -s 2>/dev/null || echo not')
+ifeq ($(uname_S),Darwin)
+	LINKER_FLAGS = -F/Library/Frameworks -framework SDL2_image -framework SDL2
+endif
+ifeq ($(uname_S),Linux)
+    LINKER_FLAGS = -lSDL2 -lSDL2_image
+endif
+
 VPATH = src:headers
 
 all: $(OBJECTS)
