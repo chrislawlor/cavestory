@@ -34,6 +34,7 @@ graphics.o: graphics.h globals.h
 game.o: graphics.h game.h
 input.o: input.h
 sprite.o: sprite.h graphics.h globals.h
+animatedsprite.o: animatedsprite.h sprite.h graphics.h
 
 .PHONY: clean
 clean:
