@@ -26,6 +26,7 @@ OBJECTS += input.o
 OBJECTS += sprite.o
 OBJECTS += animatedsprite.o
 OBJECTS += player.o
+OBJECTS += level.o
 
 all: $(OBJECTS)
 	$(CC) $(OBJECTS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJECT_NAME)
@@ -37,7 +38,8 @@ game.o: graphics.h game.h
 input.o: input.h
 sprite.o: sprite.h graphics.h globals.h
 animatedsprite.o: animatedsprite.h sprite.h graphics.h
-player.o: player.h graphics.h animatedsprite.h
+player.o: player.h graphics.h
+level.p: level.h graphics.h
 
 .PHONY: clean
 clean:

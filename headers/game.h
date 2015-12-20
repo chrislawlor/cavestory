@@ -6,7 +6,8 @@
  */
 
 
-# include "../headers/player.h"
+#include "../headers/player.h"
+#include "../headers/level.h"
 
 class Graphics;
 
@@ -21,6 +22,8 @@ private:
     void update(float elapsedTime);
 
     Player _player;
+
+    Level _level;
 };
 
 #endif

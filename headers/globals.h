@@ -12,7 +12,7 @@ enum Direction {
 	RIGHT,
 	UP,
 	DOWN
-}
+};
 
 struct Vector2 {
 	int x, y;
