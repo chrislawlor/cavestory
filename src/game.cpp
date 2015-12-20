@@ -3,6 +3,7 @@
 #include "../headers/game.h"
 #include "../headers/graphics.h"
 #include "../headers/input.h"
+#include "../headers/player.h"
 
 
 namespace {
@@ -24,9 +25,9 @@ void Game::gameLoop() {
     Input input;
     SDL_Event event;
 
-    this->_player = AnimatedSprite(graphics, "content/sprites/MyChar.png", 0, 0, 16, 16, 100, 100, 100);
-    this->_player.setupAnimations();
-    this->_player.playAnimation("RunRight");
+    this->_player = Player(graphics, 100, 100);
+    // this->_player.setupAnimations();
+    // this->_player.playAnimation("RunRight");
 
     int LAST_UPDATE_TIME = SDL_GetTicks();
 
@@ -68,7 +69,7 @@ void Game::gameLoop() {
 void Game::draw(Graphics &graphics){
     graphics.clear();
 
-    this->_player.draw(graphics, 100, 100);
+    this->_player.draw(graphics);
 
     graphics.flip();
 }

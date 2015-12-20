@@ -6,7 +6,7 @@
  */
 
 
-# include "../headers/animatedsprite.h"
+# include "../headers/player.h"
 
 class Graphics;
 
@@ -20,7 +20,7 @@ private:
     void draw(Graphics &graphics);
     void update(float elapsedTime);
 
-    AnimatedSprite _player;
+    Player _player;
 };
 
 #endif

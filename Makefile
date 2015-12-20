@@ -3,6 +3,7 @@ OBJECT_NAME = cavestory
 CC = g++
 
 LINKER_FLAGS = 
+COMPILER_FLAGS = -v
 
 # Different options for Linux and OSX
 uname_S := $(shell sh -c 'uname -s 2>/dev/null || echo not')
@@ -24,9 +25,10 @@ OBJECTS += game.o
 OBJECTS += input.o
 OBJECTS += sprite.o
 OBJECTS += animatedsprite.o
+OBJECTS += player.o
 
 all: $(OBJECTS)
-	$(CC) $(OBJECTS) $(LINKER_FLAGS) -o $(OBJECT_NAME)
+	$(CC) $(OBJECTS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJECT_NAME)
 
 
 main.o: graphics.h
@@ -35,6 +37,7 @@ game.o: graphics.h game.h
 input.o: input.h
 sprite.o: sprite.h graphics.h globals.h
 animatedsprite.o: animatedsprite.h sprite.h graphics.h
+player.o: player.h graphics.h animatedsprite.h
 
 .PHONY: clean
 clean:
